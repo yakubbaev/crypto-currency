@@ -11,12 +11,14 @@ class AddCoinsTableViewController: UITableViewController {
 
     var api: CoinsApiProtocol = CoinsApi()
     var coins: [Coin] = []
+    var filteredCoins: [Coin] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         api.getAvailable { result in
             self.coins = result
+            self.filteredCoins = self.coins
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -32,13 +34,13 @@ class AddCoinsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-      return coins.count
+      return filteredCoins.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "coin", for: indexPath)
 
-        let coin = coins[indexPath.row]
+        let coin = self.filteredCoins[indexPath.row]
         cell.textLabel?.text = coin
 
         return cell
@@ -89,4 +91,14 @@ class AddCoinsTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension AddCoinsTableViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredCoins = coins.filter({ coin in
+            coin.starts(with: searchText)
+        })
+        self.tableView.reloadData()
+    }
 }
