@@ -12,8 +12,10 @@
 		3DA846F8285CA7BA001B28B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA846F6285CA7BA001B28B4 /* Main.storyboard */; };
 		3DA846FA285CA7BB001B28B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DA846F9285CA7BB001B28B4 /* Assets.xcassets */; };
 		3DA846FD285CA7BB001B28B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA846FB285CA7BB001B28B4 /* LaunchScreen.storyboard */; };
-		3DA84708285CAF46001B28B4 /* AddRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA84707285CAF46001B28B4 /* AddRateTableViewController.swift */; };
 		3DA8470A285CAF6F001B28B4 /* RatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA84709285CAF6F001B28B4 /* RatesTableViewController.swift */; };
+		3DA84715285CC43F001B28B4 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA84714285CC43F001B28B4 /* Coin.swift */; };
+		3DA84717285CC45A001B28B4 /* CoinsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA84716285CC45A001B28B4 /* CoinsApi.swift */; };
+		3DA84719285CC651001B28B4 /* AddCoinsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA84718285CC651001B28B4 /* AddCoinsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +26,10 @@
 		3DA846F9285CA7BB001B28B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DA846FC285CA7BB001B28B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DA846FE285CA7BB001B28B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DA84707285CAF46001B28B4 /* AddRateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRateTableViewController.swift; sourceTree = "<group>"; };
 		3DA84709285CAF6F001B28B4 /* RatesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesTableViewController.swift; sourceTree = "<group>"; };
+		3DA84714285CC43F001B28B4 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		3DA84716285CC45A001B28B4 /* CoinsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsApi.swift; sourceTree = "<group>"; };
+		3DA84718285CC651001B28B4 /* AddCoinsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoinsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		3DA846EF285CA7BA001B28B4 /* CryptoCurrency */ = {
 			isa = PBXGroup;
 			children = (
+				3DA84711285CC144001B28B4 /* Apis */,
+				3DA84710285CC003001B28B4 /* Models */,
 				3DA84706285CAED9001B28B4 /* ViewControllers */,
 				3DA846F0285CA7BA001B28B4 /* AppDelegate.swift */,
 				3DA846F2285CA7BA001B28B4 /* SceneDelegate.swift */,
@@ -72,10 +78,26 @@
 		3DA84706285CAED9001B28B4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3DA84707285CAF46001B28B4 /* AddRateTableViewController.swift */,
 				3DA84709285CAF6F001B28B4 /* RatesTableViewController.swift */,
+				3DA84718285CC651001B28B4 /* AddCoinsTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3DA84710285CC003001B28B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DA84714285CC43F001B28B4 /* Coin.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DA84711285CC144001B28B4 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				3DA84716285CC45A001B28B4 /* CoinsApi.swift */,
+			);
+			path = Apis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA84717285CC45A001B28B4 /* CoinsApi.swift in Sources */,
 				3DA846F1285CA7BA001B28B4 /* AppDelegate.swift in Sources */,
-				3DA84708285CAF46001B28B4 /* AddRateTableViewController.swift in Sources */,
+				3DA84719285CC651001B28B4 /* AddCoinsTableViewController.swift in Sources */,
 				3DA846F3285CA7BA001B28B4 /* SceneDelegate.swift in Sources */,
 				3DA8470A285CAF6F001B28B4 /* RatesTableViewController.swift in Sources */,
+				3DA84715285CC43F001B28B4 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

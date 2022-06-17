@@ -7,16 +7,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Add Coins-->
         <scene sceneID="CYo-gV-Dtx">
             <objects>
-                <tableViewController id="9P9-eU-Mby" sceneMemberID="viewController">
+                <tableViewController id="9P9-eU-Mby" customClass="AddCoinsTableViewController" customModule="CryptoCurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="O5t-KL-1iB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i9I-5s-3YT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coin" id="i9I-5s-3YT">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i9I-5s-3YT" id="DCD-FK-nC2">
@@ -30,6 +30,9 @@
                             <outlet property="delegate" destination="9P9-eU-Mby" id="st2-r1-dcS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Add Coins" id="EfZ-U2-lG3">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="FQs-bo-BKs"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpB-fs-4lT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Rates" id="HGR-3O-SP0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OAj-8G-DZQ">
                             <connections>
-                                <segue destination="9P9-eU-Mby" kind="presentation" id="cGf-jL-n6z"/>
+                                <segue destination="9P9-eU-Mby" kind="show" id="cGf-jL-n6z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
