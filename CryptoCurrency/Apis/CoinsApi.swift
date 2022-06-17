@@ -22,7 +22,7 @@ struct CoinsApi: CoinsApiProtocol {
         }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
-                print("Failed to load coins: \(error)")
+                print("Failed to load coins: \(String(describing: error))")
                 return
             }
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
