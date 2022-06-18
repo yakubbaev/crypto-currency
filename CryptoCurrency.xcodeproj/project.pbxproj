@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D768552285DCA6200C8DBAA /* FavoriteCoinsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D768551285DCA6200C8DBAA /* FavoriteCoinsRepo.swift */; };
+		3D768554285DCF9400C8DBAA /* RatesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D768553285DCF9400C8DBAA /* RatesApi.swift */; };
+		3D768556285DE75900C8DBAA /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D768555285DE75900C8DBAA /* Currency.swift */; };
+		3D768558285DE7F600C8DBAA /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D768557285DE7F600C8DBAA /* Rate.swift */; };
 		3DA846F1285CA7BA001B28B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA846F0285CA7BA001B28B4 /* AppDelegate.swift */; };
 		3DA846F3285CA7BA001B28B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA846F2285CA7BA001B28B4 /* SceneDelegate.swift */; };
 		3DA846F8285CA7BA001B28B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA846F6285CA7BA001B28B4 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		3D768551285DCA6200C8DBAA /* FavoriteCoinsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinsRepo.swift; sourceTree = "<group>"; };
+		3D768553285DCF9400C8DBAA /* RatesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesApi.swift; sourceTree = "<group>"; };
+		3D768555285DE75900C8DBAA /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		3D768557285DE7F600C8DBAA /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		3DA846ED285CA7BA001B28B4 /* CryptoCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA846F0285CA7BA001B28B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA846F2285CA7BA001B28B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				3DA84714285CC43F001B28B4 /* Coin.swift */,
+				3D768555285DE75900C8DBAA /* Currency.swift */,
+				3D768557285DE7F600C8DBAA /* Rate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA84716285CC45A001B28B4 /* CoinsApi.swift */,
+				3D768553285DCF9400C8DBAA /* RatesApi.swift */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -181,8 +190,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D768556285DE75900C8DBAA /* Currency.swift in Sources */,
 				3DA84717285CC45A001B28B4 /* CoinsApi.swift in Sources */,
 				3DA846F1285CA7BA001B28B4 /* AppDelegate.swift in Sources */,
+				3D768558285DE7F600C8DBAA /* Rate.swift in Sources */,
+				3D768554285DCF9400C8DBAA /* RatesApi.swift in Sources */,
 				3DA84719285CC651001B28B4 /* AddCoinsTableViewController.swift in Sources */,
 				3DA846F3285CA7BA001B28B4 /* SceneDelegate.swift in Sources */,
 				3DA8470A285CAF6F001B28B4 /* RatesTableViewController.swift in Sources */,

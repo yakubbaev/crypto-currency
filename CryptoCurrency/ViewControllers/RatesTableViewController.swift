@@ -9,14 +9,18 @@ import UIKit
 
 class RatesTableViewController: UITableViewController {
 
+    var repo: FavoriteCoinsRepoProtocol = FavoriteCoinsRepo()
+    var favoriteCoins: [Coin] = []
+    var api: RatesApiProtocol = RatesApi()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        favoriteCoins = repo.loadFavorites() ?? []
+        api.loadRates(for: favoriteCoins) { rates in
+            print("Rates: \(rates)")
+        }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
