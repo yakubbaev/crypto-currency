@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D768552285DCA6200C8DBAA /* FavoriteCoinsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D768551285DCA6200C8DBAA /* FavoriteCoinsRepo.swift */; };
 		3DA846F1285CA7BA001B28B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA846F0285CA7BA001B28B4 /* AppDelegate.swift */; };
 		3DA846F3285CA7BA001B28B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA846F2285CA7BA001B28B4 /* SceneDelegate.swift */; };
 		3DA846F8285CA7BA001B28B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA846F6285CA7BA001B28B4 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D768551285DCA6200C8DBAA /* FavoriteCoinsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinsRepo.swift; sourceTree = "<group>"; };
 		3DA846ED285CA7BA001B28B4 /* CryptoCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA846F0285CA7BA001B28B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA846F2285CA7BA001B28B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D768550285DCA4700C8DBAA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3D768551285DCA6200C8DBAA /* FavoriteCoinsRepo.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		3DA846E4285CA7BA001B28B4 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		3DA846EF285CA7BA001B28B4 /* CryptoCurrency */ = {
 			isa = PBXGroup;
 			children = (
+				3D768550285DCA4700C8DBAA /* Repositories */,
 				3DA84711285CC144001B28B4 /* Apis */,
 				3DA84710285CC003001B28B4 /* Models */,
 				3DA84706285CAED9001B28B4 /* ViewControllers */,
@@ -175,6 +186,7 @@
 				3DA84719285CC651001B28B4 /* AddCoinsTableViewController.swift in Sources */,
 				3DA846F3285CA7BA001B28B4 /* SceneDelegate.swift in Sources */,
 				3DA8470A285CAF6F001B28B4 /* RatesTableViewController.swift in Sources */,
+				3D768552285DCA6200C8DBAA /* FavoriteCoinsRepo.swift in Sources */,
 				3DA84715285CC43F001B28B4 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

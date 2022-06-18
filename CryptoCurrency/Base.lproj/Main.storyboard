@@ -39,7 +39,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Coins" id="EfZ-U2-lG3">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="FQs-bo-BKs"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="FQs-bo-BKs">
+                            <connections>
+                                <action selector="doneAction" destination="9P9-eU-Mby" id="e8q-Aj-kMO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpB-fs-4lT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,12 @@ class AddCoinsTableViewController: UITableViewController {
     var coins: [Coin] = []
     var filteredCoins: [Coin] = []
     var selectedCoins: [Coin] = []
+    var repo: FavoriteCoinsRepoProtocol = FavoriteCoinsRepo()
+
+    @IBAction public func doneAction() {
+        repo.saveFavorites(coins: selectedCoins)
+        self.navigationController?.popViewController(animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,8 @@ class AddCoinsTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+
+        selectedCoins = repo.loadFavorites() ?? []
     }
 
     // MARK: - Table view data source
