@@ -12,13 +12,17 @@ class RatesTableViewController: UITableViewController {
     var repo: FavoriteCoinsRepoProtocol = FavoriteCoinsRepo()
     var favoriteCoins: [Coin] = []
     var api: RatesApiProtocol = RatesApi()
+    var rates: [Rate] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         favoriteCoins = repo.loadFavorites() ?? []
-        api.loadRates(for: favoriteCoins) { rates in
-            print("Rates: \(rates)")
+        api.loadRates(for: favoriteCoins) { result in
+            self.rates = result
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
 
     }
@@ -27,23 +31,22 @@ class RatesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return rates.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rate", for: indexPath)
+        let rate = rates[indexPath.row]
+        cell.textLabel?.text = rate.coin
+        cell.detailTextLabel?.text = rate.displayPrices
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

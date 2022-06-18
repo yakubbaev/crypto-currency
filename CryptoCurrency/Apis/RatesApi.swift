@@ -24,7 +24,7 @@ struct RatesApi: RatesApiProtocol {
         }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
-                print("Failed to load rates \(error)")
+                print("Failed to load rates \(String(describing: error))")
                 return
             }
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [Coin: Any] else {
@@ -33,20 +33,22 @@ struct RatesApi: RatesApiProtocol {
             }
 
             var result: [Rate] = []
-            for (coin, rateJson) in json {
+            for (coin, prices) in json {
 
-                guard let rateJson = rateJson as? [String: Double] else {
-                    print("Failed to parse rates dict")
+                guard let pricesJson = prices as? [String: Double] else {
+                    print("Failed to parse rate prices")
                     return
                 }
-                for (currency, price) in rateJson {
-                    guard let currency = Currency(rawValue: currency) else {
-                        print("Failed to parse rates currency")
+                var prices: [Currency: Double] = [:]
+                for (key, value) in pricesJson {
+                    guard let currency = Currency(rawValue: key) else {
+                        print("Failed to parse rate currency")
                         return
                     }
-                    let rate = Rate(coin: coin, currency: currency, price: price)
-                    result.append(rate)
+                    prices[currency] = value
                 }
+                let rate = Rate(coin: coin, prices: prices)
+                result.append(rate)
 
             }
             completionHandler(result)

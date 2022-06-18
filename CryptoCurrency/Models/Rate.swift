@@ -10,7 +10,19 @@ import Foundation
 struct Rate {
 
     var coin: Coin
-    var currency: Currency
-    var price: Double
+    var prices: [Currency: Double]
+
+}
+
+extension Rate {
+
+    var displayPrices: String {
+
+        prices.map { (key: Currency, value: Double) in
+            "\(key): \(value)"
+        }
+        .joined(separator: ", ")
+
+    }
 
 }
