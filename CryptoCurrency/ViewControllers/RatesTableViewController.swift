@@ -9,6 +9,7 @@ import UIKit
 
 class RatesTableViewController: UITableViewController {
 
+    var repo: FavoriteCoinsRepoProtocol = FavoriteCoinsRepo()
     var favoriteCoins: [Coin] = []
     var api: RatesApiProtocol = RatesApi()
     var rates: [Rate] = []
@@ -17,8 +18,7 @@ class RatesTableViewController: UITableViewController {
 
         super.viewDidLoad()
 
-        favoriteCoins = FavoriteCoinsManager.shared.loadFavorites() ?? []
-        FavoriteCoinsManager.shared.subscribe(self)
+        favoriteCoins = repo.loadFavorites() ?? []
 
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(reloadRates), for: .valueChanged)
@@ -88,21 +88,24 @@ class RatesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+        if let vc = segue.destination as? AddCoinsTableViewController {
+
+            vc.delegate = self
+
+        }
+
     }
-    */
 
 }
 
-extension RatesTableViewController: FavoriteCoinsSubscriberProtocol {
+extension RatesTableViewController: AddCoinsTableViewControllerDelegate {
 
-    func favoriteCoinsDidChange(coins: [Coin]) {
+    func coinsDidChange(_ coins: [Coin]) {
 
         self.favoriteCoins = coins
         reloadRates()

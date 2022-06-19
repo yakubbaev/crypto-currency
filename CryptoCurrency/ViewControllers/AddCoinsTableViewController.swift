@@ -7,15 +7,26 @@
 
 import UIKit
 
+protocol AddCoinsTableViewControllerDelegate: AnyObject {
+
+    func coinsDidChange(_ coins: [Coin])
+
+}
+
 class AddCoinsTableViewController: UITableViewController {
 
     var api: CoinsApiProtocol = CoinsApi()
+    var repo: FavoriteCoinsRepoProtocol = FavoriteCoinsRepo()
     var coins: [Coin] = []
     var filteredCoins: [Coin] = []
     var selectedCoins: [Coin] = []
+    weak var delegate: AddCoinsTableViewControllerDelegate?
 
     @IBAction public func doneAction() {
-        FavoriteCoinsManager.shared.saveFavorites(coins: selectedCoins)
+        repo.saveFavorites(coins: selectedCoins)
+        if let delegate = delegate {
+            delegate.coinsDidChange(selectedCoins)
+        }
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -30,7 +41,7 @@ class AddCoinsTableViewController: UITableViewController {
             }
         }
 
-        selectedCoins = FavoriteCoinsManager.shared.loadFavorites() ?? []
+        selectedCoins = repo.loadFavorites() ?? []
     }
 
     // MARK: - Table view data source
