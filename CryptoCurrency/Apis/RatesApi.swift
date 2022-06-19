@@ -35,6 +35,13 @@ struct RatesApi: RatesApiProtocol {
             var result: [Rate] = []
             for coin in coins {
 
+                // Skip coins that don't have rates                
+                if json[coin] == nil {
+
+                    continue
+
+                }
+
                 guard let pricesJson = json[coin] as? [String: Double] else {
                     print("Failed to parse rate prices")
                     return
