@@ -14,6 +14,7 @@ class RatesTableViewController: UITableViewController {
     var rates: [Rate] = []
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         favoriteCoins = FavoriteCoinsManager.shared.loadFavorites() ?? []
@@ -26,22 +27,26 @@ class RatesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+
         return rates.count
+
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "rate", for: indexPath)
         let rate = rates[indexPath.row]
         cell.textLabel?.text = rate.coin
         cell.detailTextLabel?.text = rate.displayPrices
 
         return cell
+
     }
 
     /*
@@ -107,10 +112,12 @@ extension RatesTableViewController {
     func reloadRates() {
 
         api.loadRates(for: favoriteCoins) { result in
+
             self.rates = result
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+
         }
 
     }

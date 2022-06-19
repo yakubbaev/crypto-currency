@@ -16,6 +16,7 @@ protocol FavoriteCoinsSubscriberProtocol {
 protocol FavoriteCoinsPublisherProtocol {
 
     mutating func subscribe(_ subscriber: FavoriteCoinsSubscriberProtocol)
+    func notify()
 
 }
 
