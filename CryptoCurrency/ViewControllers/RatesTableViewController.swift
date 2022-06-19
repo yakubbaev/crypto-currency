@@ -17,6 +17,7 @@ class RatesTableViewController: UITableViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
 
         favoriteCoins = repo.loadFavorites() ?? []
 
@@ -78,13 +79,18 @@ class RatesTableViewController: UITableViewController {
 
     }
 
-
-    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
+        let coin = favoriteCoins[fromIndexPath.row]
+        var newFavoriteCoins = favoriteCoins
+        newFavoriteCoins.remove(at: fromIndexPath.row)
+        newFavoriteCoins.insert(coin, at: to.row)
+        favoriteCoins = newFavoriteCoins
+        
+        reloadRates()
+
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
