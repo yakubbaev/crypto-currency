@@ -22,6 +22,7 @@ struct FavoriteCoinsRepo: FavoriteCoinsRepoProtocol {
     func saveFavorites(coins: [Coin]) {
 
         UserDefaults.standard.setValue(coins, forKey: FavoriteCoinsRepo.FAVORITE_COINS_KEY)
+        UserDefaults.standard.synchronize()
         
     }
 
