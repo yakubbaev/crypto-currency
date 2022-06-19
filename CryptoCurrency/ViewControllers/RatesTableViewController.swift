@@ -9,7 +9,6 @@ import UIKit
 
 class RatesTableViewController: UITableViewController {
 
-    var repo: FavoriteCoinsRepoProtocol = FavoriteCoinsRepo()
     var favoriteCoins: [Coin] = []
     var api: RatesApiProtocol = RatesApi()
     var rates: [Rate] = []
@@ -17,13 +16,10 @@ class RatesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        favoriteCoins = repo.loadFavorites() ?? []
-        api.loadRates(for: favoriteCoins) { result in
-            self.rates = result
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        favoriteCoins = FavoriteCoinsManager.shared.loadFavorites() ?? []
+        FavoriteCoinsManager.shared.subscribe(self)
+
+        reloadRates()
 
     }
 
@@ -92,5 +88,31 @@ class RatesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension RatesTableViewController: FavoriteCoinsSubscriberProtocol {
+
+    func favoriteCoinsDidChange(coins: [Coin]) {
+
+        self.favoriteCoins = coins
+        reloadRates()
+
+    }
+
+}
+
+extension RatesTableViewController {
+
+    func reloadRates() {
+
+        api.loadRates(for: favoriteCoins) { result in
+            self.rates = result
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
+    }
 
 }
