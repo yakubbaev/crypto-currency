@@ -38,6 +38,8 @@ struct RatesApi: RatesApiProtocol {
                 // Skip coins that don't have rates                
                 if json[coin] == nil {
 
+                    let rate = Rate(coin: coin, prices: [:])
+                    result.append(rate)
                     continue
 
                 }

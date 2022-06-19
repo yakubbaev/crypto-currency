@@ -18,7 +18,13 @@ extension Rate {
 
     var displayPrices: String {
 
-        prices.map { (key: Currency, value: Double) in
+        if prices.isEmpty {
+
+            return "N/A"
+
+        }
+
+        return prices.map { (key: Currency, value: Double) in
             "\(key): \(value)"
         }
         .joined(separator: ", ")
