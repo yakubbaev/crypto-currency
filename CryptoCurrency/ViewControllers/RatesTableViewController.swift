@@ -20,6 +20,10 @@ class RatesTableViewController: UITableViewController {
         favoriteCoins = FavoriteCoinsManager.shared.loadFavorites() ?? []
         FavoriteCoinsManager.shared.subscribe(self)
 
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(reloadRates), for: .valueChanged)
+
+        refreshControl?.beginRefreshing()
         reloadRates()
 
     }
@@ -109,13 +113,14 @@ extension RatesTableViewController: FavoriteCoinsSubscriberProtocol {
 
 extension RatesTableViewController {
 
-    func reloadRates() {
+    @objc func reloadRates() {
 
         api.loadRates(for: favoriteCoins) { result in
 
             self.rates = result
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
 
         }
