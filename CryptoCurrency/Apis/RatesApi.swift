@@ -33,12 +33,13 @@ struct RatesApi: RatesApiProtocol {
             }
 
             var result: [Rate] = []
-            for (coin, prices) in json {
+            for coin in coins {
 
-                guard let pricesJson = prices as? [String: Double] else {
+                guard let pricesJson = json[coin] as? [String: Double] else {
                     print("Failed to parse rate prices")
                     return
                 }
+
                 var prices: [Currency: Double] = [:]
                 for (key, value) in pricesJson {
                     guard let currency = Currency(rawValue: key) else {
