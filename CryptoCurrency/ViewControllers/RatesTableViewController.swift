@@ -72,6 +72,7 @@ class RatesTableViewController: UITableViewController {
             let newFavoriteCoins = favoriteCoins.filter { coin in
                 coin != rate.coin
             }
+            favoriteCoins = newFavoriteCoins
             repo.saveFavorites(coins: newFavoriteCoins)
             rates.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
